@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>ajax.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <script type="text/javascript">
+  	$(function(){
+  		$("input[type='button']").click(function(){
+  			var ip = $("#ip").val();
+  			var url="http://restapi.amap.com/v3/ip?key=d2fd5c42b5bb4bab38b26175b562182c&ip="+ip;
+  			var jsonObj={
+  			    type: "GET",
+				//请求的路径
+				url: url,
+				//将返回的字符串 转化成json对象 (JSON.parse(返回字符串))
+				dataType:'json',
+				//请求响应的回调函数  参数1就是写回的json数据
+  				success:function(msg){
+  				    var tq=msg.city;
+  					if(tq!="" && tq!=null){
+  						alert("此ip所在城市为："+tq);		
+  					}else{
+  						alert("你查找的IP不存在！");
+  					}	
+  					tq="";
+  				}
+  			};
+  			$.ajax(jsonObj)
+  		});
+  		
+  		
+  	})
+  
+  </script>
+
+  <body>
+    请输入IP：<input id="ip" type="text" value="">
+    <input type="button" value="查询地址">
+  </body>
+</html>

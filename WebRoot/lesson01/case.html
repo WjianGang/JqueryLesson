@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>case.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <script type="text/javascript">
+  /*获取表*/
+  	window.onload=function(){
+  		var tb1 = document.getElementById("t1");
+  	    /*获取表格的主题部分*/
+      	var tbody = tb1.getElementsByTagName("tbody")[0]; 
+     	/*获取tr*/
+     	var trs = tbody.getElementsByTagName("tr");
+     	for(var i=0;i<trs.length;i++){
+     		if(i%2==0){
+   			    trs[i].style.backgroundColor="red";
+     		}else{
+  			    trs[i].style.backgroundColor="green";
+  		    }  		
+     	}
+  	}
+  	
+  	
+  	
+  </script>
+  
+  <body>
+    <table id="t1" >
+    <tbody>
+   	<tr><th>用户姓名</th><th>用户性别</th><th>用户年龄</th></tr>
+   	<tr><td>zs</th><td>男</td><td>11</td></tr>
+   	<tr><td>ls</td><td>女</td><td>12</td></tr>
+   	<tr><td>ww</td><td>骚</td><td>34</td></tr>
+   	<tr><td>uu</td><td>妖</td><td>34</td></tr>
+   	</tbody>
+   </table>
+   <br/>
+   	<div id="div">
+	   <input  type="button" id="all" value="全选" />
+	   <input  type="button" id="other" value="反选"/>
+	   <input  type="button" id="no" value="不选" /><br/>
+	   <input  type="checkbox" name="1"/>篮球
+	   <input  type="checkbox" name="2"/>足球
+	   <input  type="checkbox" name="3"/>排球
+    </div>
+  </body>
+  
+  <script type="text/javascript">
+  	 var all=document.getElementById('all');/*获取全选*/
+  	 var other=document.getElementById('other');/*获取反选*/
+  	 var no=document.getElementById('no');/*获取不选的*/
+     var div=document.getElementById('div');/*获取div*/
+     var CheckBox=div.getElementsByTagName('input');/*获取所有input标签的*/
+  	  all.onclick=function(){
+  	  	   for(i=0;i<CheckBox.length;i++){   		
+  	  	   		CheckBox[i].checked=true;
+           }
+  	  }
+  	  
+  	  other.onclick=function(){
+  	  	for(i=0;i<CheckBox.length;i++){
+  	  		if(CheckBox[i].checked==true){
+  	  			CheckBox[i].checked=false;
+  	  		}else{
+  	  			 CheckBox[i].checked=true
+  	  		}
+  	  	    
+        }
+        
+        no.onclick=function(){
+        	for(i=0;i<CheckBox.length;i++){
+        		CheckBox[i].checked=false;
+        	}
+        }
+  	  }
+  </script>
+</html>
